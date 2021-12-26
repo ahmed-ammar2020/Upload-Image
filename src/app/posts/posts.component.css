@@ -1,0 +1,49 @@
+.posts-container {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  flex-direction: column;
+}
+
+.posts-container .post-form,
+.card {
+  width: 40%;
+}
+
+.posts-container .full-width {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+
+  .posts-container form,
+  .card {
+    width: 70%;
+  }
+
+}
+
+.card {
+  margin: 50px 0;
+}
+
+.header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.comment-input {
+  margin-top: 40px;
+}
+
+.posts-container .comment-form {
+  width: 100%;
+}
+
+.posts-container .comment-form .full-width {
+  width: 100%;
+}
+
+.username {
+  font-weight: bold;
+}

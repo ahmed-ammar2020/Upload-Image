@@ -1,0 +1,58 @@
+<div class="form-container">
+  <form [formGroup]="createAccForm" (ngSubmit)="submitForm()">
+    <div class="mat-headline title">Create an account</div>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input matInput autocomplete="off" formControlName="email" />
+      <mat-error *ngIf="createAccForm.controls.email.errors?.required"
+        >This field is required</mat-error
+      >
+      <mat-error *ngIf="createAccForm.controls.email.errors?.email"
+        >Please enter a valid email</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Enter your username</mat-label>
+      <input matInput autocomplete="off" formControlName="username" />
+      <mat-error *ngIf="createAccForm.controls.username.errors?.required"
+        >This field is required</mat-error
+      >
+      <mat-error *ngIf="createAccForm.controls.username.errors?.maxlength"
+        >You should enter no more than
+        {{ createAccForm.controls.username.errors?.maxlength.requiredLength }}
+        characters</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input
+        type="password"
+        matInput
+        autocomplete="off"
+        formControlName="password"
+      />
+      <mat-error *ngIf="createAccForm.controls.password.errors?.required"
+        >This field is required</mat-error
+      >
+      <mat-error *ngIf="createAccForm.controls.password.errors?.minlength"
+        >You should enterat least
+        {{ createAccForm.controls.password.errors?.minlength.requiredLength }}
+        characters</mat-error
+      >
+    </mat-form-field>
+    <div class="text-center">
+      <div>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="createAccForm.invalid"
+        >
+          Create an account
+        </button>
+      </div>
+      <div class="or-between">or</div>
+      <a routerLink="/login" mat-button>Login</a>
+    </div>
+  </form>
+</div>

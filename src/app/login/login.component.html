@@ -1,0 +1,53 @@
+<div class="form-container">
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+    <div class="mat-headline title">Login</div>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Enter your email</mat-label>
+      <input matInput autocomplete="off" formControlName="email" />
+      <mat-error *ngIf="loginForm.controls.email.errors?.required"
+        >This field is required</mat-error
+      >
+      <mat-error *ngIf="loginForm.controls.email.errors?.email"
+        >Please enter a valid email</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input
+        type="password"
+        matInput
+        autocomplete="off"
+        formControlName="password"
+      />
+      <mat-error *ngIf="loginForm.controls.password.errors?.required"
+        >This field is required</mat-error
+      >
+      <mat-error *ngIf="loginForm.controls.password.errors?.minlength"
+        >You should enter at least
+        {{ loginForm.controls.password.errors?.minlength.requiredLength }}
+        characters</mat-error
+      >
+    </mat-form-field>
+    <ng-container *ngIf="loginForm.errors">
+      <div *ngIf="loginForm.errors?.invalidUser" class="custom-error">
+        Email is not existed
+      </div>
+      <div *ngIf="loginForm.errors?.incorrectPassword" class="custom-error">
+        Password is incorrect
+      </div>
+    </ng-container>
+    <div class="text-center">
+      <div>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="loginForm.invalid"
+        >
+          Login
+        </button>
+      </div>
+      <div class="or-between">or</div>
+      <a routerLink="/create-account" mat-button>Create an account</a>
+    </div>
+  </form>
+</div>

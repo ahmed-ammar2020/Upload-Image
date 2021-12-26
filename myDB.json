@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "email": "a@a",
+      "username": "ahmed",
+      "password": "123456",
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "username": "ahmed",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sbook-f97d9.appspot.com/o/images%2F1640481257054?alt=media&token=eb705a63-3f34-49ff-9e9f-918179debff8",
+      "text": "Hi gyus",
+      "likes": [],
+      "comments": [],
+      "id": 1
+    }
+  ]
+}
